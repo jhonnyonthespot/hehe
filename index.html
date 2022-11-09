@@ -1,155 +1,299 @@
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta http-equiv="X-Frame-Options" content="DENY">
-        <meta http-equiv="pragma" content="no-cache"/>
-		<meta name="description" content="Play retro bowl 2">
-		<meta name="keywords" content="unblocked games, ad blocker, retro bowl, slope, run 3, web games, online games, fun, tags">
-		<meta name="robots" content="index, follow">
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name ="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <meta charset="utf-8"/>
-	    <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XLKQYDCPMG"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-XLKQYDCPMG');
-</script>
-
-
-        <title>Retro Bowl 2</title>
-
-        <style>
-            body {
-		    <script type="text/javascript">
-   window.SDK_OPTIONS = {
-      gameId: "7iynx7kfb13bmq0e0hblsd7biocz9kfh",
-      onEvent: function (a) {
-         switch (a.name) {
-            case "SDK_GAME_PAUSE":
-               // pause game logic / mute audio
-               break;
-            case "SDK_GAME_START":
-               // advertisement done, resume game logic and unmute audio
-               break;
-            case "SDK_READY":
-               // when sdk is ready
-               break;
-         }
-      }
-   };
-(function (a, b, c) {
-   var d = a.getElementsByTagName(b)[0];
-   a.getElementById(c) || (a = a.createElement(b), a.id = c, a.src = "https://api.gamemonetize.com/sdk.js", d.parentNode.insertBefore(a, d))
-})(document, "script", "gamemonetize-sdk"); 
-</script>
-		    
-            }
-            canvas {
-                      image-rendering: optimizeSpeed;
-                      -webkit-interpolation-mode: nearest-neighbor;
-                      -ms-touch-action: none;
-                      margin: 0px;
-                      padding: 0px;
-                      border: 0px;
-            }
-            :-webkit-full-screen #canvas {
-                 width: 100%;
-                 height: 100%;
-            }
-            div.gm4html5_div_class
-            {
-              margin: 0px;
-              padding: 0px;
-              border: 0px;
-            }
-            /* START - Login Dialog Box */
-            div.gm4html5_login
-            {
-                 padding: 20px;
-                 position: absolute;
-                 border: solid 2px #000000;
-                 background-color: #ffffff;
-                 color:#00ff00;
-                 border-radius: 15px;
-                 box-shadow: #101010 20px 20px 40px;
-            }
-            div.gm4html5_cancel_button
-            {
-                 float: right;
-            }
-            div.gm4html5_login_button
-            {
-                 float: left;
-            }
-            div.gm4html5_login_header
-            {
-                 text-align: center;
-            }
-            /* END - Login Dialog Box */
-            :-webkit-full-screen {
-               width: 100%;
-               height: 100%;
-            }
-        </style>
-    </head>
-
-    <body>
-        <div class="gm4html5_div_class" id="gm4html5_div_id">
-        <img src="html5game/splash.png" id="GM4HTML5_loadingscreen" alt="GameMaker:HTML5 loading screen" style="display:none;"/>
-            <canvas id="canvas" width="853" height="480">
-                     <p>Your browser doesn't support HTML5 canvas.</p>
-            </canvas>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Password Protected Page</title>
+    <style>
+        html, body {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #dialogText {
+            color: white;
+            background-color: #333333;
+        }
+        
+        #dialogWrap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: table;
+            background-color: #EEEEEE;
+        }
+        
+        #dialogWrapCell {
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+        }
+        
+        #mainDialog {
+            max-width: 400px;
+            margin: 5px;
+            border: solid #AAAAAA 1px;
+            border-radius: 10px;
+            box-shadow: 3px 3px 5px 3px #AAAAAA;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #FFFFFF;
+            overflow: hidden;
+            text-align: left;
+        }
+        #mainDialog > * {
+            padding: 10px 30px;
+        }
+        #passArea {
+            padding: 20px 30px;
+            background-color: white;
+        }
+        #passArea > * {
+            margin: 5px auto;
+        }
+        #pass {
+            width: 100%;
+            height: 40px;
+            font-size: 30px;
+        }
+        
+        #messageWrapper {
+            float: left;
+            vertical-align: middle;
+            line-height: 30px;
+        }
+        
+        .notifyText {
+            display: none;
+        }
+        
+        #invalidPass {
+            color: red;
+        }
+        
+        #success {
+            color: green;
+        }
+        
+        #submitPass {
+            font-size: 20px;
+            border-radius: 5px;
+            background-color: #E7E7E7;
+            border: solid gray 1px;
+            float: right;
+            cursor: pointer;
+        }
+        #contentFrame {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        #attribution {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 0.8em;
+        }
+        #attribution, #attribution a {
+            color: #999;
+        }
+        .error {
+            display: none;
+            color: red;
+        }
+    </style>
+  </head>
+  <body>
+    <iframe id="contentFrame" frameBorder="0" allowfullscreen></iframe>
+    <div id="dialogWrap">
+        <div id="dialogWrapCell">
+            <div id="mainDialog">
+                <div id="dialogText">This page is password protected.</div>
+                <div id="passArea">
+                    <p id="passwordPrompt">Password</p>
+                    <input id="pass" type="password" name="pass" autofocus>
+                    <div>
+                        <span id="messageWrapper">
+                            <span id="invalidPass" class="error">Sorry, please try again.</span>
+                            <span id="trycatcherror" class="error">Sorry, something went wrong.</span>
+                            <span id="success" class="notifyText">Success!</span>
+                            &nbsp;
+                        </span>
+                        <button id="submitPass" type="button">Submit</button>
+                        <div style="clear: both;"></div>
+                    </div>
+                </div>
+                <div id="securecontext" class="error">
+                    <p>
+                        Sorry, but password protection only works over a secure connection. Please load this page via HTTPS.
+                    </p>
+                </div>
+                <div id="nocrypto" class="error">
+                    <p>
+                        Your web browser appears to be outdated. Please visit this page using a modern browser.
+                    </p>
+                </div>
+            </div>
         </div>
+    </div>
+    <div id="attribution">
+        Protected by <a href="https://www.maxlaumeister.com/pagecrypt/">PageCrypt</a>
+    </div>
+    <script>
+    (function() {
 
+        var pl = "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";
+        
+        var submitPass = document.getElementById('submitPass');
+        var passEl = document.getElementById('pass');
+        var invalidPassEl = document.getElementById('invalidPass');
+        var trycatcherror = document.getElementById('trycatcherror');
+        var successEl = document.getElementById('success');
+        var contentFrame = document.getElementById('contentFrame');
+        
+        // Sanity checks
 
-        <script type="text/javascript" src="html5game/RetroBowl.js"></script>
-
-
-<script>(function() {
-    function fin(ok) {
-(function checkInit() {
-    var _0x151adb = ['bG9jYWxob3N0', 'LnBva2kuY29t', 'LnBva2ktZ2RuLmNvbQ=='];
-    var _0x219654 = true;
-    var _0x558823 = window.location.hostname;
-    for (var _0x220888 = 0x0; _0x220888 < _0x151adb.length; _0x220888++) {
-        var _0x4a2f49 = atob(_0x151adb[_0x220888]);
-        if (_0x558823.indexOf(_0x4a2f49, _0x558823.length - _0x4a2f49.length) !== -0x1) {
-            _0x219654 = true;
-            break;
+        if (pl === "") {
+            submitPass.disabled = true;
+            passEl.disabled = true;
+            alert("This page is meant to be used with the encryption tool. It doesn't work standalone.");
+            return;
         }
-    }
-    if (!_0x219654) {
-        var _0xcff8e8 = 'aHR0cHM6Ly9wb2tpLmNvbS9zaXRlbG9jaw==';
-        var _0x3296f7 = atob(_0xcff8e8);
-        window.location.href = _0x3296f7;
-        this.top.location !== this.location && (this.top.location = this.location);
-    }
-}());
-        window.PokiSDK_OK = ok;
-        GameMaker_Init();
-    }
-    window.addEventListener("load", function(_) {
-        window.PokiSDK_loadState = 0;
-        if (window.PokiSDK) {
-            PokiSDK.init().then(function() {
-            fin(true);
-        }).catch(function() {
-            fin(false);
-        });
-        } else {
-            window.PokiSDK = null;
-            fin(false);
+
+        if (!isSecureContext) {
+            document.querySelector("#passArea").style.display = "none";
+            document.querySelector("#securecontext").style.display = "block";
+            return;
         }
-    });
+
+        if (!crypto.subtle) {
+            document.querySelector("#passArea").style.display = "none";
+            document.querySelector("#nocrypto").style.display = "block";
+            return;
+        }
+        
+        function str2ab(str) {
+            var ustr = atob(str);
+            var buf = new ArrayBuffer(ustr.length);
+            var bufView = new Uint8Array(buf);
+            for (var i=0, strLen=ustr.length; i < strLen; i++) {
+                bufView[i] = ustr.charCodeAt(i);
+            }
+            return bufView;
+        }
+
+        async function deriveKey(salt, password) {
+            const encoder = new TextEncoder()
+            const baseKey = await crypto.subtle.importKey(
+                'raw',
+                encoder.encode(password),
+                'PBKDF2',
+                false,
+                ['deriveKey'],
+            )
+            return await crypto.subtle.deriveKey(
+                { name: 'PBKDF2', salt, iterations: 100000, hash: 'SHA-256' },
+                baseKey,
+                { name: 'AES-GCM', length: 256 },
+                true,
+                ['decrypt'],
+            )
+        }
+        
+        async function doSubmit(evt) {
+            submitPass.disabled = true;
+            passEl.disabled = true;
+
+            let iv, ciphertext, key;
+            
+            try {
+                var unencodedPl = str2ab(pl);
+
+                const salt = unencodedPl.slice(0, 32)
+                iv = unencodedPl.slice(32, 32 + 16)
+                ciphertext = unencodedPl.slice(32 + 16)
+
+                key = await deriveKey(salt, passEl.value);
+            } catch (e) {
+                trycatcherror.style.display = "inline";
+                console.error(e);
+                return;
+            }
+
+            try {
+                const decryptedArray = new Uint8Array(
+                    await crypto.subtle.decrypt({ name: 'AES-GCM', iv }, key, ciphertext)
+                );
+
+                let decrypted = new TextDecoder().decode(decryptedArray);
+
+                if (decrypted === "") throw "No data returned";
+
+                const basestr = '<base href="." target="_top">';
+                const anchorfixstr = `
+                    <script>
+                        Array.from(document.links).forEach((anchor) => {
+                            const href = anchor.getAttribute("href");
+                            if (href.startsWith("#")) {
+                                anchor.addEventListener("click", function(e) {
+                                    e.preventDefault();
+                                    const targetId = this.getAttribute("href").substring(1);
+                                    const targetEl = document.getElementById(targetId);
+                                    targetEl.scrollIntoView();
+                                });
+                            }
+                        });
+                    <\/script>
+                `;
+                
+                // Set default iframe link targets to _top so all links break out of the iframe
+                if (decrypted.includes("<head>")) decrypted = decrypted.replace("<head>", "<head>" + basestr);
+                else if (decrypted.includes("<!DOCTYPE html>")) decrypted = decrypted.replace("<!DOCTYPE html>", "<!DOCTYPE html>" + basestr);
+                else decrypted = basestr + decrypted;
+
+                // Fix fragment links
+                if (decrypted.includes("</body>")) decrypted = decrypted.replace("</body>", anchorfixstr + '</body>');
+                else if (decrypted.includes("</html>")) decrypted = decrypted.replace("</html>", anchorfixstr + '</html>');
+                else decrypted = decrypted + anchorfixstr;
+                
+                contentFrame.srcdoc = decrypted;
+                
+                successEl.style.display = "inline";
+                setTimeout(function() {
+                    dialogWrap.style.display = "none";
+                }, 1000);
+            } catch (e) {
+                invalidPassEl.style.display = "inline";
+                passEl.value = "";
+                submitPass.disabled = false;
+                passEl.disabled = false;
+                console.error(e);
+                return;
+            }
+        }
+        
+        submitPass.onclick = doSubmit;
+        passEl.onkeypress = function(e){
+            if (!e) e = window.event;
+            var keyCode = e.keyCode || e.which;
+            invalidPassEl.style.display = "none";
+            if (keyCode == '13'){
+              // Enter pressed
+              doSubmit();
+              return false;
+            }
+        }
     })();
-</script>
-
-    </body>
+    </script>
+  </body>
 </html>
